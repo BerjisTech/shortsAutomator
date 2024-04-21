@@ -1,6 +1,13 @@
 from moviepy.editor import VideoFileClip, ImageClip, concatenate_videoclips, AudioFileClip
 
 class VideoEditor:
+    def create_split_screen(self, gameplay_video_path, image_path, output_path):
+        # Placeholder for split-screen video creation
+        gameplay_clip = VideoFileClip(gameplay_video_path)
+        image_clip = ImageClip(image_path).set_duration(gameplay_clip.duration)
+        final_clip = concatenate_videoclips([gameplay_clip, image_clip], method="compose")
+        final_clip.write_videofile(output_path, codec="libx264")
+        
     def create_split_screen_video(self, gameplay_video_path, lifestyle_images_paths):
         # This is a simplified placeholder. Actual implementation would need to handle timing, transitions, etc.
         gameplay_clip = VideoFileClip(gameplay_video_path)
